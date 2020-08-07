@@ -30,7 +30,6 @@ class LinkedList:
 
     ### Inserting Items ###
     # Inserting Items at the Beginning
-
     def insert_at_start(self, data):
         new_node = Node(data)
         new_node.next = self.head
@@ -139,3 +138,45 @@ class LinkedList:
             node = node.next
 
         return false
+
+    ### Deleting Elements ###
+    # Delete from the start
+    def delete_at_start(self):
+        if self.head is None:
+            print('The list has no element to delete')
+            return
+        self.head = self.head.next
+
+    # Delete at the end
+    def delete_at_end(self):
+        if self.head is None:
+            print('The list has no element to delete')
+            return
+
+        node = self.head
+        while node.next.next is not None:
+            node = node.next
+
+        node.next = None
+
+    # Delete by item value
+    def delete_by_value(self, data):
+        if self.head is None:
+            print('The list has no element to delete')
+            return
+
+        # Deleting first node
+        if self.head.data == data:
+            self.head = self.head.next
+            return
+
+        node = self.head
+        while node.next is not None:
+            if node.next.data == x:
+                break
+            node = node.next
+
+        if node.next is None:
+            print('item not found in the list')
+        else:
+            node.next = node.next.next
