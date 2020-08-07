@@ -100,3 +100,15 @@ class LinkedList:
             new_node.next = node.next
             node.next = new_node
 
+    # Counting Elements
+    def get_len(self):
+        if self.head is None:
+            return 0
+
+        node = self.head
+        count = 0
+        while node is not None:
+            count = count + 1
+            node = node.next
+
+        return count
