@@ -19,8 +19,18 @@ class LinkedList:
                 print(node.data, ' ')
                 node = node.next
 
+    ### function for creating list ###
+    def make_new_list(self):
+        qtd = int(input('How many nodes do you want to create: '))
+        if qtd == 0:
+            return
+        for i in range(qtd):
+            data = int(input('Enter the value for the node:'))
+            self.insert_at_end(data)
+
     ### Inserting Items ###
     # Inserting Items at the Beginning
+
     def insert_at_start(self, data):
         new_node = Node(data)
         new_node.next = self.head
