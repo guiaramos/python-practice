@@ -8,7 +8,7 @@ class LinkedList:
     def __init__(self):
         self.head = None
 
-    # Traversing Linked List Items
+    ### Traversing Linked List Items ###
     def traverse_list(self):
         if self.head is None:
             print('list has no element')
@@ -61,11 +61,13 @@ class LinkedList:
     def insert_before_item(self, target, data):
         if self.head is None:
             print('list has no element')
+            return
 
         if target == self.head.data:
             new_node = Node(data)
             new_node.next = self.head
             self.head = new_node
+            return
 
         node = self.head
         while node.next is not None:
@@ -86,6 +88,7 @@ class LinkedList:
             new_node = Node(data)
             new_node.next = self.head
             self.head = new_node
+            return
 
         i = 1
         node = self.head
@@ -94,13 +97,13 @@ class LinkedList:
             i = i+1
 
         if node is None:
-            print("index out of bound")
+            print('index out of bound')
         else:
             new_node = Node(data)
             new_node.next = node.next
             node.next = new_node
 
-    # Counting Elements
+    ### Counting Elements ###
     def get_len(self):
         if self.head is None:
             return 0
@@ -112,3 +115,17 @@ class LinkedList:
             node = node.next
 
         return count
+
+    ### Searching Elements ###
+    def search_item(self, data):
+        if self.head is None:
+            print('list has no elements')
+            return
+
+        node = self.head
+        while node is not None:
+            if node.data == data:
+                return true
+            node = node.next
+
+        return false
