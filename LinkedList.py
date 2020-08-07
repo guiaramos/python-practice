@@ -180,3 +180,16 @@ class LinkedList:
             print('item not found in the list')
         else:
             node.next = node.next.next
+
+    # Reversing a Linked List
+    def reverse_list(self):
+        prevNode = None
+        node = self.head
+
+        while node is not None:
+            nextNode = node.next
+            node.next = prevNode
+            prev = node
+            node = nextNode
+
+        self.head = prevNode
